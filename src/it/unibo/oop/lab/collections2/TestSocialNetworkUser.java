@@ -6,11 +6,8 @@ package it.unibo.oop.lab.collections2;
 import java.util.Collection;
 
 /**
- * Test for {@link it.unibo.oop.lab.collections2.SocialNetworkUserImpl}.
- * 
- * 1) Complete the test as per comments below
- * 
- * 2) Run it: every test must return true.
+ * This is going to act as a test for
+ * {@link it.unibo.oop.lab.collections2.SocialNetworkUserImpl}.
  * 
  */
 public final class TestSocialNetworkUser {
@@ -28,22 +25,27 @@ public final class TestSocialNetworkUser {
      *            ignored
      */
     public static void main(final String... args) {
+
         /*
-         * TODO create 5 social network users (SocialNetworkUser)
+         * create 5 social network users (SocialNetworkUser):
          * 
-         * Kevin Bacon,kbacon, 56
+         * * Kevin Bacon, kbacon, 56
          * 
-         * Denzel Washington, dwashington, 59
+         * * Denzel Washington, dwashington, 59
          * 
-         * Malcom Gladwell, mgladwell, 51
+         * * Malcom Gladwell, mgladwell, 51
          * 
-         * Nicholas Taleb, ntaleb, 54
+         * * Nicholas Taleb, ntaleb, 54
+         * 
+         * And one regular UserImpl (User)
+         * 
+         * * Adam Smith, asmith, (no age)
          */
         final SocialNetworkUser<User> kbacon = null;
         final SocialNetworkUser<User> dwashington = null;
         final SocialNetworkUser<User> mgladwell = null;
         final SocialNetworkUser<User> ntaleb = null;
-        final User asmith = new UserImpl("Adam", "Smith", "asmith");
+        final User asmith = null;
         /*
          * Make people follow each other
          */
@@ -61,16 +63,14 @@ public final class TestSocialNetworkUser {
         final Collection<User> mgladFriends = mgladwell.getFollowedUsersInGroup("Close friends");
         System.out.println("M Gladwell has not set yet any group called \"Close friends\": " + mgladFriends.isEmpty());
         final Collection<User> dwashFriends = dwashington.getFollowedUsersInGroup(WRITERS);
-        System.out.println("Denzel has 2 followed people in group \"writers\": " + (dwashFriends.size() == 2));
+        System.out.println("Denzel has 2 followed people in group \"" + WRITERS + ": " + (dwashFriends.size() == 2));
         /*
          * Adding another friend to Denzel's "writers" group...
          */
         dwashFriends.add(asmith);
-        /*
-         * The above operation *MUST* have no effect on Denzel's profile itself:
-         * STILL TWO PEOPLE in denzel's group called writers
-         */
-        System.out.println("Denzel has STILL 2 followed people in group \"writers\": "
+        // The above operation *MUST* have no effect on Denzel's profile itself:
+        // STILL TWO PEOPLE in denzel's group called writers
+        System.out.println("Denzel has STILL 2 followed people in group \"" + WRITERS + ": "
                 + (dwashington.getFollowedUsersInGroup(WRITERS).size() == 2));
     }
 }
